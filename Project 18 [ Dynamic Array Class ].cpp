@@ -16,7 +16,16 @@ int main()
     cout << "\nIs Empty ? : " << MyDynamicArray.IsEmpty();
     cout << "\nArray Size : " << MyDynamicArray.Size() << "\n";
     cout << "\nArray Elements :\n";
+    MyDynamicArray.PrintList();
 
+    MyDynamicArray.Resize(2);
+    cout << "\nArray Size : " << MyDynamicArray.Size() << "\n";
+    cout << "\nArray Elements after resize to 2 :\n";
+    MyDynamicArray.PrintList();
+
+    MyDynamicArray.Resize(10);
+    cout << "\nArray Size : " << MyDynamicArray.Size() << "\n";
+    cout << "\nArray Elements after resize to 10 :\n";
     MyDynamicArray.PrintList();
 
     system("pause>0");
