@@ -51,6 +51,9 @@ public:
 
 	void PrintList()
 	{
+		if (OriginalArray == NULL)
+			return;
+
 		for (int i = 0;i < _Size;i++)
 		{
 			cout << OriginalArray[i] << " ";
@@ -74,8 +77,36 @@ public:
 			_TempArray[i] = OriginalArray[i];
 		}
 
-		delete[] OriginalArray;
+		delete OriginalArray;
 		_Size = NewSize;
+		OriginalArray = _TempArray;
+	}
+
+	T GetItem(int Index)
+	{
+		if (Index < 0 || Index >= _Size)
+			return NULL;
+		
+		return OriginalArray[Index];
+	}
+
+	void Clear()
+	{
+		_Size = 0;
+		delete OriginalArray;
+		OriginalArray = new T[0];
+	}
+
+	void Reverse()
+	{
+		_TempArray = new T[_Size];
+
+		for (int i = 0;i < _Size;i++)
+		{
+			_TempArray[i] = OriginalArray[_Size - 1 - i];
+		}
+
+		delete OriginalArray;
 		OriginalArray = _TempArray;
 	}
 };
