@@ -18,37 +18,21 @@ int main()
     cout << "\nArray Items :\n";
     MyDynamicArray.PrintList();
 
-    MyDynamicArray.DeleteFirstItem();
-    cout << "\nArray Items after deleting First Item :\n";
+    int Index = MyDynamicArray.Find(30);
+
+    if (Index == -1)
+    {
+        cout << "\nItem was not found :-(\n";
+    }
+    else
+    {
+        cout << "\n30 is found at index : " << Index << "\n";
+    }
+
+    MyDynamicArray.DeleteItem(30);
+    cout << "\n\nArray Items after deleting 30 :";
     cout << "\nArray Size : " << MyDynamicArray.Size() << "\n";
     MyDynamicArray.PrintList();
-
-    MyDynamicArray.DeleteLastItem();
-    cout << "\nArray Items after deleting Last Item :\n";
-    cout << "\nArray Size : " << MyDynamicArray.Size() << "\n";
-    MyDynamicArray.PrintList();
-
-    /*cout << "\nItem (2) : " << MyDynamicArray.GetItem(2) << "\n";
-
-    MyDynamicArray.Reverse();
-
-    cout << "\nArray Items after Reverse :\n";
-    MyDynamicArray.PrintList();
-
-    MyDynamicArray.Clear();
-
-    cout << "\nArray Items after Clear :\n";
-    MyDynamicArray.PrintList();*/
-
-    /*MyDynamicArray.Resize(2);
-    cout << "\nArray Size : " << MyDynamicArray.Size() << "\n";
-    cout << "\nArray Elements after resize to 2 :\n";
-    MyDynamicArray.PrintList();
-
-    MyDynamicArray.Resize(10);
-    cout << "\nArray Size : " << MyDynamicArray.Size() << "\n";
-    cout << "\nArray Elements after resize to 10 :\n";
-    MyDynamicArray.PrintList();*/
 
     system("pause>0");
     return 0;
