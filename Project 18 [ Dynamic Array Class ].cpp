@@ -5,39 +5,92 @@ using namespace std;
 
 int main()
 {
-    clsDynamicArray <short> MyDynamicArray(5);
+    cout << "\n===== Dynamic Array Full Test =====\n\n";
 
-    MyDynamicArray.SetItem(0, 10);
-    MyDynamicArray.SetItem(1, 20);
-    MyDynamicArray.SetItem(2, 30);
-    MyDynamicArray.SetItem(3, 40);
-    MyDynamicArray.SetItem(4, 50);
+    clsDynamicArray <int> MyDynamicArray(5);
 
-    cout << "\nIs Empty ? : " << MyDynamicArray.IsEmpty();
-    cout << "\nArray Size : " << MyDynamicArray.Size() << "\n";
-    cout << "\nArray Items :\n";
+    cout << "Initial Size : " << MyDynamicArray.Size() << endl;
+    cout << "Is Empty ? " << MyDynamicArray.IsEmpty() << endl;
+
+    cout << "\n--- Setting Initial Values ---\n";
+    for (int i = 0; i < MyDynamicArray.Size(); i++)
+    {
+        MyDynamicArray.SetItem(i, (i + 1) * 10);
+    }
+
     MyDynamicArray.PrintList();
 
-    MyDynamicArray.InsertAtBeginning(400);
-    cout << "\n\nArray after insert 400 at Begining:";
-    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\n--- GetItem(2) ---\n";
+    cout << "Value at index 2 : " << MyDynamicArray.GetItem(2) << endl;
+
+    cout << "\n--- Reverse ---\n";
+    MyDynamicArray.Reverse();
     MyDynamicArray.PrintList();
 
-    MyDynamicArray.InsertBefore(2, 500);
-    cout << "\n\nArray after insert 500 before index 2:";
-    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\n--- Resize to 3 ---\n";
+    MyDynamicArray.Resize(3);
+    cout << "Size : " << MyDynamicArray.Size() << endl;
     MyDynamicArray.PrintList();
 
-    MyDynamicArray.InsertAfter(2, 600);
-    cout << "\n\nArray after insert 600 after index 2:";
-    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\n--- Resize to 6 ---\n";
+    MyDynamicArray.Resize(6);
+    cout << "Size : " << MyDynamicArray.Size() << endl;
     MyDynamicArray.PrintList();
 
-
-    MyDynamicArray.InsertAtEnd(800);
-    cout << "\n\nArray after insert 800 at End:";
-    cout << "\nArray Size: " << MyDynamicArray.Size() << "\n";
+    cout << "\n--- InsertAt(2, 99) ---\n";
+    MyDynamicArray.InsertAt(2, 99);
     MyDynamicArray.PrintList();
+
+    cout << "\n--- InsertAtBeginning(111) ---\n";
+    MyDynamicArray.InsertAtBeginning(111);
+    MyDynamicArray.PrintList();
+
+    cout << "\n--- InsertAtEnd(222) ---\n";
+    MyDynamicArray.InsertAtEnd(222);
+    MyDynamicArray.PrintList();
+
+    cout << "\n--- InsertBefore(2, 333) ---\n";
+    MyDynamicArray.InsertBefore(2, 333);
+    MyDynamicArray.PrintList();
+
+    cout << "\n--- InsertAfter(2, 444) ---\n";
+    MyDynamicArray.InsertAfter(2, 444);
+    MyDynamicArray.PrintList();
+
+    cout << "\n--- Find(99) ---\n";
+    int index = MyDynamicArray.Find(99);
+    if (index != -1)
+    {
+        cout << "99 found at index : " << index << endl;
+    }
+    else
+    {
+        cout << "99 not found\n";
+    }
+
+    cout << "\n--- DeleteItem(99) ---\n";
+    MyDynamicArray.DeleteItem(99);
+    MyDynamicArray.PrintList();
+
+    cout << "\n--- DeleteItemAt(1) ---\n";
+    MyDynamicArray.DeleteItemAt(1);
+    MyDynamicArray.PrintList();
+
+    cout << "\n--- DeleteFirstItem ---\n";
+    MyDynamicArray.DeleteFirstItem();
+    MyDynamicArray.PrintList();
+
+    cout << "\n--- DeleteLastItem ---\n";
+    MyDynamicArray.DeleteLastItem();
+    MyDynamicArray.PrintList();
+
+    cout << "\n--- Clear ---\n";
+    MyDynamicArray.Clear();
+    cout << "Size after Clear : " << MyDynamicArray.Size() << endl;
+    cout << "Is Empty ? " << MyDynamicArray.IsEmpty() << endl;
+    MyDynamicArray.PrintList();
+
+    cout << "\n===== End of Test =====\n";
 
     system("pause>0");
     return 0;
