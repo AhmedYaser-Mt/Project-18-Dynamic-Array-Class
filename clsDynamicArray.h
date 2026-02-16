@@ -172,7 +172,7 @@ public:
 
 	bool InsertAt(int Index, T Value)
 	{
-		if (Index < 0 || Index >= _Size)
+		if (Index < 0 || Index > _Size)
 			return false;
 
 		_Size++;
@@ -186,14 +186,40 @@ public:
 
 		_TempArray[Index] = Value;
 
-		for (int i = Index + 1;i < _Size;i++)
+		for (int i = Index;i < _Size - 1;i++)
 		{
-			_TempArray[i] = OriginalArray[i - 1];
+			_TempArray[i + 1] = OriginalArray[i];
 		}
 
 		delete[] OriginalArray;
 		OriginalArray = _TempArray;
 		return true;
+	}
+
+	bool InsertAtBeginning(T Value)
+	{
+		return InsertAt(0, Value);
+	}
+
+	bool InsertAtEnd(T Value)
+	{
+		return InsertAt(_Size, Value);
+	}
+
+	bool InsertBefore(int Index, T Value)
+	{
+		if (Index < 1)
+			return InsertAt(0, Value);
+		else
+			return InsertAt(Index - 1, Value);
+	}
+
+	bool InsertAfter(int Index, T Value)
+	{
+		if (Index >= _Size)
+			return InsertAt(_Size - 1, Value);
+		else
+			return InsertAt(Index + 1, Value);
 	}
 };
 
